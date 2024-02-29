@@ -3,13 +3,8 @@ package com.example.familysafety
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import java.sql.Time
-import java.text.SimpleDateFormat
-import java.util.Date
-import java.util.Locale
 
 class MemberAdapter(private val listMembers: List<MemberModel>) : RecyclerView.Adapter<MemberAdapter.ViewHolder>() {
 
@@ -22,12 +17,12 @@ class MemberAdapter(private val listMembers: List<MemberModel>) : RecyclerView.A
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val currentTime = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date())
 
         val item = listMembers[position]
 //        holder.imageUser.view
         holder.userName.text = item.name
         holder.userAddress.text = item.address
+
     }
 
     override fun getItemCount(): Int {
