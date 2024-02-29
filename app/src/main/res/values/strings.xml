@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">FamilySafety</string>
+    <string name="sos">SOS</string>
+    <string name="home_title">My Family</string>
+    <string name="location_icon">location</string>
+    <string name="more_icon">more</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="guard_img">guard_img</string>
+    <string name="open_when_you_are_on_a_potentially_dangerous_journey">Open when you are on a potentially dangerous journey</string>
+    <string name="desc_sos_img">sos_img</string>
+    <string name="in_case_of_emergency_keep_telling_family_members_to_contact_me">In case of emergency, Keep telling family members to contact me</string>
+    <string name="guard">GUARD</string>
+    <string name="security">Security</string>
+    <string name="dhananjai_kumar">Dhananjai Kumar</string>
+    <string name="shulsong_building_tairan_9th_road_fution_shenzhen">Shulsong Building, Tairan 9th Road, Fution, Shenzhen</string>
+    <string name="_224m">224M</string>
+    <string name="_90">90%</string>
+    <string name="wifi">WiFi</string>
+    <string name="tanisha_mahajan">Tanisha Mahajan</string>
+</resources>
