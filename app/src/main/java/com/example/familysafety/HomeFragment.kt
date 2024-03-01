@@ -1,5 +1,6 @@
 package com.example.familysafety
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.provider.ContactsContract
@@ -10,16 +11,18 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlin.collections.ArrayList
 
 
 class HomeFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private val listContacts:ArrayList<ContactModel> = ArrayList(
 
-    }
-
+    )
 
 
     override fun onCreateView(
@@ -29,6 +32,7 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,7 +40,7 @@ class HomeFragment : Fragment() {
         val listMembers = listOf<MemberModel>(
             MemberModel("xyz", "Behind Uco Bank Ramnagar Charoda B.M.Y Durg Chhattisgarh"),
             MemberModel("xyz", "Behind Uco Bank Ramnagar Charoda B.M.Y Durg Chhattisgarh"),
-            MemberModel("xyz", "Behind Uco Bank Ramnagar Charoda B.M.Y Durg Chhattisgarh")
+            MemberModel("xyz", "Behind Uco Bank Ramnagar Charoda B.M.Y Durg Chhattisgarh"),
         )
         val adapter = MemberAdapter(listMembers)
 
@@ -46,12 +50,21 @@ class HomeFragment : Fragment() {
 
         fetchContacts()
 
+        val inviteAdapter = InviteAdapter(listContacts)
 
-        val inviteAdapter = InviteAdapter(fetchContacts())
+        CoroutineScope(Dispatchers.IO).launch {
+            withContext(Dispatchers.Main){
+                inviteAdapter.notifyDataSetChanged()
+                listContacts.addAll(fetchContacts())
+            }
+        }
+
+
 
         val inviteRecycler = requireView().findViewById<RecyclerView>(R.id.recycler_invite)
         inviteRecycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         inviteRecycler.adapter = inviteAdapter
+
 
     }
 
@@ -76,7 +89,7 @@ class HomeFragment : Fragment() {
                             ""
                             )
                     if(pCur != null && pCur.count>0){
-                        while (pCur != null && pCur.moveToNext()){
+                        while (pCur.moveToNext()){
 
                             val phoneNum = pCur.getString(pCur.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER))
 
@@ -86,13 +99,12 @@ class HomeFragment : Fragment() {
                     }
                 }
             }
-            if (cursor!=null){
-                cursor.close()
-            }
+            cursor.close()
         }
 
         return listContacts
     }
+
 
 
     companion object {
