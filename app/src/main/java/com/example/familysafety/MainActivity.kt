@@ -71,15 +71,15 @@ class MainActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
-//        if(requestCode == permissionCode){
-//            if (allPermissionGranted())
-//            {
-//                openCamera()
-//            }
-//            else{
-//
-//            }
-//        }
+        if(requestCode == permissionCode){
+            if (allPermissionGranted())
+            {
+                openCamera()
+            }
+            else{
+                Toast.makeText(this, "Permission not granted", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun openCamera(){
