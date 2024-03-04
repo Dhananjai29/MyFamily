@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+
+    <TextView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="32sp"
+        android:textAlignment="center"
+        android:layout_margin="20dp"
+        android:textStyle="bold"
+        android:id="@+id/Login_heading"
+        android:text="@string/hello_login_to_move_forward"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:src="@drawable/ic_login"
+        android:contentDescription="@string/login_img"
+        app:layout_constraintTop_toBottomOf="@id/Login_heading"
+        android:layout_margin="32dp"
+        android:layout_width="match_parent"
+        android:layout_height="450dp" />
+
+    <Button
+        android:layout_marginHorizontal="30dp"
+        android:backgroundTint="@color/aqua"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:onClick="signIn"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/continue_with_google"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

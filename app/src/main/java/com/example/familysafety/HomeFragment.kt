@@ -53,9 +53,12 @@ class HomeFragment : Fragment() {
         val inviteAdapter = InviteAdapter(listContacts)
 
         CoroutineScope(Dispatchers.IO).launch {
+
+            listContacts.addAll(fetchContacts())
+
             withContext(Dispatchers.Main){
                 inviteAdapter.notifyDataSetChanged()
-                listContacts.addAll(fetchContacts())
+
             }
         }
 

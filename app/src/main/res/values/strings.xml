@@ -4,7 +4,6 @@
     <string name="home_title">My Family</string>
     <string name="location_icon">location</string>
     <string name="more_icon">more</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="guard_img">guard_img</string>
     <string name="open_when_you_are_on_a_potentially_dangerous_journey">Open when you are on a potentially dangerous journey</string>
@@ -20,4 +19,14 @@
     <string name="tanisha_mahajan">Tanisha Mahajan</string>
     <string name="rahul">Rahul</string>
     <string name="invite">INVITE</string>
+    <string name="login_img">Login_img</string>
+    <string name="hello_login_to_move_forward">Hello! Login to move forward</string>
+    <string name="continue_with_google">Continue With Google</string>
+    <string name="web_client_id">511136378026-t601h7035cgs12j6gtokhb8eutaqp5td.apps.googleusercontent.com</string>
+    <string name="user">User</string>
+    <string name="profile">Profile</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="logout">Logout</string>
+    <string name="user_name">User name</string>
+    <string name="user_email">User Email</string>
 </resources>

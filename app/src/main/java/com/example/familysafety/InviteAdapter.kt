@@ -25,7 +25,7 @@ class InviteAdapter(private val listContacts: List<ContactModel>) :
     }
 
     class ViewHolder(private val item: View) : RecyclerView.ViewHolder(item) {
-        val name = item.findViewById<TextView>(R.id.image_name)
+        val name: TextView = item.findViewById<TextView>(R.id.image_name)
     }
 
 }
